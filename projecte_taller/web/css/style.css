@@ -61,7 +61,7 @@ input::placeholder {
     color: #555555;
 }
 
-/* el date picker queda una mica lleig en dark però bé */
+
 input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(0.7);
 }
@@ -88,7 +88,7 @@ button:hover {
     min-height: 18px;
 }
 
-/* taula de cites */
+
 
 .seccio-cap {
     display: flex;
