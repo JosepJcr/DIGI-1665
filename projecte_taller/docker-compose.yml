@@ -1,0 +1,32 @@
+version: '3'
+services:
+  db:
+    hostname: taller-josep-coruña-db
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: taller
+    networks:
+      - taller_net
+  api:
+    hostname: taller-josep-coruña-api
+    build: ./api
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    networks:
+      - taller_net
+  web:
+    hostname: taller-josep-coruña-web
+    image: nginx:alpine
+    volumes:
+      - ./web:/usr/share/nginx/html
+    ports:
+      - "8080:80"
+    networks:
+      - taller_net
+
+networks:
+  taller_net:
+    driver: bridge

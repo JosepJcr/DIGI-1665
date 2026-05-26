@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cites del Taller</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+           <img class="logo" src="img/logo.png" alt="Logo del taller"> 
+            <h1>Cites del Taller</h1>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Formulari per demanar cita -->
+        <section class="caixa">
+            <h2>Demana una cita</h2>
+
+            <div class="camp-grup">
+                <label for="camp_vehicle">ID del vehicle</label>
+                <input type="text" id="camp_vehicle" placeholder="Ex: ABC-1234">
+            </div>
+
+            <div class="camp-grup">
+                <label for="camp_data">Data de la cita</label>
+                <input type="date" id="camp_data">
+            </div>
+
+            <div class="camp-grup">
+                <label for="camp_servei">Servei sol·licitat</label>
+                <input type="text" id="camp_servei" placeholder="Ex: Canvi d'oli">
+            </div>
+
+            <button onclick="enviarCita()">Enviar cita</button>
+
+            <p id="missatge"></p>
+        </section>
+
+        <!-- Llistat de cites -->
+        <section class="caixa">
+            <div class="seccio-cap">
+                <h2>Cites</h2>
+                <button class="btn-recarregar" onclick="carregarCites()">↺ Actualitzar</button>
+            </div>
+
+            <table id="taula_cites">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Vehicle</th>
+                        <th>Data</th>
+                        <th>Servei</th>
+                    </tr>
+                </thead>
+                <tbody id="cos_taula">
+                    <!-- Les cites es posen aquí amb JavaScript -->
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
