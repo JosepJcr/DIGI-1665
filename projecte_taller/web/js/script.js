@@ -1,19 +1,13 @@
-// =============================================
-// URL de l'API — canvia-la pel teu servidor
-// =============================================
+
 const url_api = "http://localhost:5000";
 
-
-// =============================================
-// FUNCIÓ 1: Enviar una cita nova
-// =============================================
 function enviarCita() {
 
     const vehicle = document.getElementById("camp_vehicle").value.trim();
     const data    = document.getElementById("camp_data").value;
     const servei  = document.getElementById("camp_servei").value.trim();
 
-    // Validació de camps buits
+
     if (vehicle === "" || data === "" || servei === "") {
         mostrarMissatge("⚠ Omple tots els camps!", "var(--vermell)");
         return;
@@ -45,9 +39,6 @@ function enviarCita() {
 }
 
 
-// =============================================
-// FUNCIÓ 2: Carregar i mostrar totes les cites
-// =============================================
 function carregarCites() {
 
     fetch(url_api + "/appointments")
@@ -63,9 +54,6 @@ function carregarCites() {
 }
 
 
-// =============================================
-// FUNCIÓ 3: Dibuixar les cites a la taula HTML
-// =============================================
 function mostrarCitesALaTaula(llista_cites) {
 
     const cos_taula = document.getElementById("cos_taula");
@@ -76,12 +64,11 @@ function mostrarCitesALaTaula(llista_cites) {
         return;
     }
 
-    // Correcció: "let" en lloc de "const" perquè és un comptador
     for (let i = 0; i < llista_cites.length; i++) {
 
         const cita = llista_cites[i];
 
-        // Correcció: "let" en lloc de "const" perquè reassignem la variable
+       
         let fila = "<tr>";
         fila += "<td>#" + cita.id               + "</td>";
         fila += "<td>" + cita.vehicle_id         + "</td>";
@@ -94,19 +81,12 @@ function mostrarCitesALaTaula(llista_cites) {
 }
 
 
-// =============================================
-// FUNCIÓ 4: Mostrar un missatge a l'usuari
-// =============================================
 function mostrarMissatge(text, color) {
     const p = document.getElementById("missatge");
     p.textContent = text;
     p.style.color = color;
 }
 
-
-// =============================================
-// FUNCIÓ 5: Buidar els camps del formulari
-// =============================================
 function buidarFormulari() {
     document.getElementById("camp_vehicle").value = "";
     document.getElementById("camp_data").value    = "";
